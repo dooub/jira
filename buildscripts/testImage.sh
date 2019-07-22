@@ -20,9 +20,9 @@ testImage() {
     elif [[ $iteration == 10 ]]; then
       exit 1
     else
-      ((iteration++))
       echo "HTTP status of iteration $iteration: $response"
       echo "Will wait and retry ..."
+      ((iteration = iteration + 1))
     fi
     sleep 10
   done
