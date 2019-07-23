@@ -13,7 +13,7 @@ testImage() {
   while true; do
     local response
     set +e
-    response=$(docker run --rm --network $networkName byrnedo/alpine-curl -s -o /dev/null -I -w '%{http_code}' http://172.26.0.1:"$port")
+    response=$(curl -s -o /dev/null -I -w '%{http_code}' http://localhost:"$port")
     set -e
     if [[ $response == 2* ]] || [[ $response == 3* ]]; then
       break
